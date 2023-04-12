@@ -1,0 +1,20 @@
+from tkinter import filedialog as fg
+
+
+file_path = fg.askopenfilename()
+
+try:
+    with open(file_path, 'r') as file:
+        textfile= file_path
+        for l in file:
+            for char in l:
+                val= ord(char) - 3 #ascii to character
+                string= chr(val) # character to ascii
+                textfile+=string
+
+except FileNotFoundError:
+    print("File not found.")
+
+
+with open('C:\\Users\\0835227\\OneDrive - Pittsburg State University\\cpl\\DoddaT.txt', 'w') as file:
+    file.write(textfile)
